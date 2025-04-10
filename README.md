@@ -1,10 +1,12 @@
 # DT-JRD
-DT-JRD: Deep Transformer-based Just Recognizable Difference Prediction Model for Video Coding for Machines
-[paper](#) [code](#)  
-[Junqi Liu](https://github.com/JunqiLiu-SYSU), [Yun Zhang](https://codec.siat.ac.cn/yunzhang/), [Xiaoqi Wang](https://github.com/XiaoqiWang), [Long Xu](https://scholar.google.com.sg/citations?hl=en&user=PBqivgkAAAAJ&view_op=list_works&sortby=pubdate), [Sam Kwong](https://scholars.ln.edu.hk/en/persons/sam-tak-wu-kwong)
-*IEEE Transactions on Multimedia (TMM), 2025*
 
-# DT-JRD
+![GitHub stars](https://img.shields.io/github/stars/JunqiLiu-SYSU/DT-JRD?style=social)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![PyTorch](https://img.shields.io/badge/Framework-PyTorch-red)
+![Requirements Status](https://img.shields.io/badge/Requirements-pip--install--r--txt-brightgreen)
+![License](https://img.shields.io/github/license/JunqiLiu-SYSU/DT-JRD)
+![Last commit](https://img.shields.io/github/last-commit/JunqiLiu-SYSU/DT-JRD)
+
 DT-JRD: Deep Transformer-based Just Recognizable Difference Prediction Model for Video Coding for Machines \
 [[paper]](https://arxiv.org/abs/2411.09308) [[code]](https://github.com/JunqiLiu-SYSU/DT-JRD) \
 [Junqi Liu](https://github.com/JunqiLiu-SYSU), [Yun Zhang](https://codec.siat.ac.cn/yunzhang/), [Xiaoqi Wang](https://github.com/XiaoqiWang), [Long Xu](https://scholar.google.com.sg/citations?hl=en&user=PBqivgkAAAAJ&view_op=list_works&sortby=pubdate), [Sam Kwong](https://scholars.ln.edu.hk/en/persons/sam-tak-wu-kwong) \
@@ -23,6 +25,18 @@ Coding experiments show that compared with the VVC, the DT-JRD-based VCM achieve
 
 ## Requirements
 
+🧩 This project was trained and tested with:
+
+- 🐍 **Python** 3.10.14
+
+📦 To install required packages, simply run:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Train
-<pre> ``` python train.py --size 384 --epochs 20 --batchsize 32 --lr 0.01 --gpus 0,1 --device cuda:0 ``` </pre>
+<pre> python train.py --size 384 --epochs 20 --batchsize 32 --lr 0.01 --gpus 0,1 --device cuda:0 </pre>
+
+## Test
+<pre> python test.py --train_weights your_checkpoint_path 
