@@ -3,7 +3,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/JunqiLiu-SYSU/DT-JRD?style=social)
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![PyTorch](https://img.shields.io/badge/Framework-PyTorch-red)
-![Requirements Status](https://img.shields.io/badge/Requirements-pip--install--r--txt-brightgreen)
+[![arXiv](https://img.shields.io/badge/arXiv-2411.09308-b31b1b.svg)](https://arxiv.org/abs/2411.09308)
 ![License](https://img.shields.io/github/license/JunqiLiu-SYSU/DT-JRD)
 ![Last commit](https://img.shields.io/github/last-commit/JunqiLiu-SYSU/DT-JRD)
 
@@ -20,7 +20,7 @@ Finally, we propose a DT-JRD-based VCM to reduce the coding bits while maintaini
 Extensive experimental results demonstrate that the mean absolute error of the predicted JRD by the DT-JRD is 5.574, outperforming the state-of-the-art JRD prediction model by 13.1\%.
 Coding experiments show that compared with the VVC, the DT-JRD-based VCM achieves an average of 29.58\% bit rate reduction while maintaining the object detection accuracy.
 <p align="center">
-  <img src="framework.png" alt="Framework Overview" width="700"/>
+  <img src="DT-JRD.png" alt="Framework Overview" width="700"/>
 </p>
 
 ## Requirements
@@ -34,9 +34,64 @@ Coding experiments show that compared with the VVC, the DT-JRD-based VCM achieve
 ```bash
 pip install -r requirements.txt
 ```
+## 🗂️ Project Directory Structure
+```
+DT-JRD
+├── jsonfiles/
+│   ├── all_GT_classes.json
+│   ├── all_objects_infos.json
+│   ├── coco80_indices.json
+│   ├── JRD_info.json
+│   ├── test_names.json
+│   ├── train_names.json
+│   └── val_names.json
+├── data/
+│   ├── original/
+│   └── distorted/
+├── pre_weights/
+│   └── pretrained_vit.pth
+├── train.py
+├── test.py
+├── dataset.py
+├── model.py
+└── utils.py
+```
+
+📥 The pretrained ViT weights can be downloaded from:  
+- [ViT-L/32](https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-vitjx/jx_vit_large_patch32_224_in21k-9046d2e7.pth)  
+- [ViT-B/32](https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-vitjx/jx_vit_base_patch32_224_in21k-8db57226.pth)
+
+## 📊 Dataset
+In this work and our previous study ([BC-JRD](https://ieeexplore.ieee.org/document/10349945)), we use the [OW-JRD (Object-wise Just Recognizable Distortion)](https://ieee-dataport.org/documents/object-wise-just-recognizable-distortion-dataset) dataset, as illustrated below. It consist of original and distorted images of detected objects from the COCO test set.
+<p align="center">
+  <img src="BC-JRD.png" alt="Framework Overview" width="700"/>
+</p>
 
 ## Train
 <pre> python train.py --size 384 --epochs 20 --batchsize 32 --lr 0.01 --gpus 0,1 --device cuda:0 </pre>
 
 ## Test
-<pre> python test.py --train_weights your_checkpoint_path 
+<pre> python test.py --train_weights your_checkpoint_path </pre>
+
+## 📖 Citation
+
+If you find our work useful or relevant to your research, please kindly cite our paper:
+
+```bibtex
+@article{liu2024dt,
+  title={DT-JRD: Deep Transformer based Just Recognizable Difference Prediction Model for Video Coding for Machines},
+  author={Liu, Junqi and Zhang, Yun and Wang, Xiaoqi and Long, Xu and Kwong, Sam},
+  journal={arXiv preprint arXiv:2411.09308},
+  year={2024}
+}
+
+@ARTICLE{zhang2023learning,
+  author={Zhang, Yun and Lin, Haoqin and Sun, Jing and Zhu, Linwei and Kwong, Sam},
+  journal={IEEE Transactions on Multimedia}, 
+  title={Learning to Predict Object-Wise Just Recognizable Distortion for Image and Video Compression}, 
+  year={2024},
+  volume={26},
+  number={},
+  pages={5925-5938},
+  keywords={Image coding;Machine vision;Distortion;Visualization;Predictive models;Image recognition;Task analysis;Deep learning;just recognizable distortion;object detection;video coding for machine},
+  doi={10.1109/TMM.2023.3340882}}
