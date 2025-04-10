@@ -1,0 +1,8 @@
+# Python 3.10.14 required
+torch==2.1.0
+torchvision==0.16.0
+numpy==1.26.4
+opencv_python==4.9.0.80
+pandas==2.2.2
+Pillow==10.3.0
+tqdm==4.66.4
