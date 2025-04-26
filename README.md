@@ -64,7 +64,13 @@ We also provided the source codes and pretrained weights of our previous study (
 - [ViT-B/32](https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-vitjx/jx_vit_base_patch32_224_in21k-8db57226.pth)
 
 ## 📊 Dataset
-In this work and our previous study ([BC-JRD](https://ieeexplore.ieee.org/document/10349945)), we use the [OW-JRD (Object-wise Just Recognizable Distortion)](https://ieee-dataport.org/documents/object-wise-just-recognizable-distortion-dataset) dataset, as illustrated below. It consist of original and distorted images of detected objects from the COCO test set. DT-JRD is a non-reference model, and therefore only the original data is required. In contrast, BC-JRD is a full-reference model, which necessitates both the original and distorted data for training and validation.
+In this work and our previous study ([BC-JRD](https://ieeexplore.ieee.org/document/10349945)), we use the [**OW-JRD (Object-wise Just Recognizable Distortion) dataset**](https://ieee-dataport.org/documents/object-wise-just-recognizable-distortion-dataset), as illustrated below.  
+The dataset consists of original and distorted images of detected **objects** from the COCO test set.  
+The prediction models presented in this paper are trained and validated on the OW-JRD dataset.  
+DT-JRD is a no-reference model, and therefore only the original data is required. In contrast, BC-JRD is a full-reference model, which necessitates both the original and distorted data for training and validation.  
+In addition, we provide the [*JRD image dataset*](https://pan.baidu.com/s/1T6kdpvSqx9WIZ-Flg9-90A) (*extraction code: hrrn*), which consists of 8,471 original *images* selected from the COCO test set along with 64 corresponding distorted versions.  
+The OW-JRD dataset is constructed based on the JRD image dataset, which also enables secondary development for customized dataset construction and experiments involving VVC encoding.
+
 <p align="center">
   <img src="BC-JRD.png" alt="Framework Overview" width="700"/>
 </p>
