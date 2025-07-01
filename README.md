@@ -77,6 +77,68 @@ We also provided the source codes and pretrained weights of our previous study (
 ## Test
 <pre> python test.py --train_weights your_checkpoint_path </pre>
 
+## 🖼️🗜️Coding Pipeline Instructions
+
+### 1. Coding Data Preparation
+
+1. Run `resize_png.py`  
+   Adjust the original image dimensions to even values.
+
+2. Run `png2yuv.py`  
+   Convert the resized PNG images to YUV420 format.
+
+3. Run `make_png_cfg.py`  
+   Generate configuration files for each image.
+
+---
+
+### 2. VVC All-Intra Coding Pipeline
+
+1. Run `make_files.py`  
+   Create storage paths for encoded data under different QP settings.
+
+2. Run `compress.py`  
+   Encode the images.
+
+3. Run `decode.py`  
+   Decode the images.
+
+4. Run `decode_yuv2png.py`  
+   Convert the decoded YUV files back to PNG format.
+
+5. Run `decode_resize_png.py`  
+   Resize the decoded images back to their original dimensions.
+
+---
+
+### 3. JRD-based VCM Pipeline
+
+1. Run `make_files.py`  
+   Create storage paths for encoded data under different QP settings.
+
+2. Run `make_intra_cfg.py`  
+   Generate encoding configuration files for each image and modify the `InitialQP` values.
+
+3. Run `compress.py`  
+   Encode the images.
+
+4. Run `decode.py`  
+   Decode the images.
+
+5. Run `decode_yuv2png.py`  
+   Convert the decoded YUV files back to PNG format.
+
+6. Run `decode_resize_png.py`  
+   Resize the decoded images back to their original dimensions.
+
+7. *(Optional)* Run `see_CTU_QP.py`  
+   Generate a `vtmbmsstats` file, which can be used with YUVviewer to visualize the QP values of CTUs in the YUV files.
+
+We provide executable files (EncoderApp.exe and DecoderApp.exe) for two encoding methods: VVC All-Intra Coding and JRD-based VCM.
+In addition, we wrap the encoder invocation and operation process into Python scripts, which include the specific encoding commands.
+To facilitate understanding, we also provide examples of the corresponding configuration files.
+During the encoding pipeline, we use FFmpeg 4.2.2 (win64) for format conversion and processing.
+
 ## 📖 Citation
 
 If you find our work useful or relevant to your research, please kindly cite our paper:
