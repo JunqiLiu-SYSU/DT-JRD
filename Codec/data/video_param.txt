@@ -1,0 +1,9 @@
+#======== File I/O =====================
+InputFile                     : 76x76_75x75.yuv
+InputBitDepth                 : 8           # Input bitdepth
+InputChromaFormat             : 420         # Ratio of luminance to chrominance samples
+FrameRate                     : 31          # Frame Rate per second
+FrameSkip                     : 0           # Number of frames to be skipped in input
+SourceWidth                   : 76
+SourceHeight                  : 76
+FramesToBeEncoded             : 1
